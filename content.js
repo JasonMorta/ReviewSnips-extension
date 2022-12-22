@@ -52,14 +52,25 @@ let test = document.querySelector('.heading-xx')
 
 //==========chrome extension
 
-chrome.tabs.getCurrent(getTab)
-
-
-function getTab(tab){
-
-
-chrome.tabs.sendMessage(tab.id, test)
+const params = {
+  active: true,
+  currentWindow: true
 }
+
+chrome.tabs.query(params, gotTabs)
+
+function gotTabs(tabs){
+  console.log(tabs);
+
+
+  chrome.tabs.sendMessage(tabs[0],"hello")
+}
+
+(async () => {
+  const response = await chrome.runtime.sendMessage({greeting: "hello"});
+  // do something with response here, not outside the function
+  console.log(response);
+})();
 
   
   //chrome.runtime.sendMessage(student)
