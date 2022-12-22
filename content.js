@@ -1,6 +1,7 @@
 //Grab all the h2 element inner text
 
- 
+let test = document.querySelector('.heading-xx')
+console.log('test', test)
 //student data object
 
 //finished student object
@@ -51,11 +52,9 @@
 
 //==========chrome extension
 
-// chrome.runtime.sendMessage(tabId, {
-//   type: "NEW",
-//   videoId: myVar,
-//   random: "random string"
-// })
+chrome.runtime.sendMessage(tabId, {
+heading: test
+})
 
 
   
