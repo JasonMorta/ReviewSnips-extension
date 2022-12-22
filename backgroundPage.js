@@ -1,8 +1,11 @@
 async function background(){
 console.log("running the extension now");
 
-chrome.runtime.onConnect.addListener(
-  callback: function,
-)
+chrome.runtime.onMessage.addListener(gotMessage)
+
+function gotMessage(message, sender, response) {
+  console.log(message)
+  
+}
 }background()
 

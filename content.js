@@ -1,7 +1,7 @@
 //Grab all the h2 element inner text
 
 let test = document.querySelector('.heading-xx')
-console.log('test', test)
+
 //student data object
 
 //finished student object
@@ -52,10 +52,14 @@ console.log('test', test)
 
 //==========chrome extension
 
-chrome.runtime.sendMessage(tabId, {
-heading: test
-})
+chrome.tabs.getCurrent(getTab)
 
+
+function getTab(tab){
+
+
+chrome.tabs.sendMessage(tab.id, test)
+}
 
   
   //chrome.runtime.sendMessage(student)
